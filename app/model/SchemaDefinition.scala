@@ -4,7 +4,7 @@ import sangria.macros.derive._
 import sangria.schema._
 
 object SchemaDefinition {
-  
+
   implicit val PictureType: ObjectType[Unit, Picture] =
     deriveObjectType[Unit, Picture](
       ObjectTypeDescription("The product picture"),
@@ -28,13 +28,11 @@ object SchemaDefinition {
 
     Field("product", OptionType(ProductType),
       description = Some("Returns a product with specific `id`."),
-      arguments = Id::Nil,
+      arguments = Id :: Nil,
       resolve = c ⇒ c.ctx.product(c arg Id)),
 
     Field("products", ListType(ProductType),
       description = Some("Returns a list of all available products."),
       resolve = _.ctx.products)))
-
-  val schema = Schema(QueryType)
 
 }

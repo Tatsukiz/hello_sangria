@@ -1,3 +1,3 @@
-POST  /graphql                      controllers.HomeController.graphql
+POST    /graphql                    controllers.ApplicationController.graphql
 
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
